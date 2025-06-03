@@ -29,4 +29,11 @@ return [
     'finish_date' => 'Finish date',
     'updated_at' => 'Updated at',
     'attachments' => 'Attachments',
+
+    'device' => 'Device',
+    'next_date' => 'Next Date',
+    'status' => 'Status',
+    'completed' => 'Completed',
+    'pending' => 'Pending',
+    'skipped' => 'Skipped',
 ];

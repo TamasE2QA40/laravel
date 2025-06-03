@@ -29,4 +29,11 @@ return [
     'finish_date' => 'Befejezés dátuma',
     'updated_at' => 'Frissítve',
     'attachments' => 'Csatolt Fájlok',
+
+    'device' => 'Eszköz',
+    'next_date' => 'Következő dátum',
+    'status' => 'Státusz',
+    'completed' => 'Teljesítve',
+    'pending' => 'Folyamatban',
+    'skipped' => 'Kihagyva',
 ];

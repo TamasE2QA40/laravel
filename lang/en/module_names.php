@@ -9,6 +9,10 @@ return [
         'label' => 'Device type',
         'plural_label' => 'Device types',
     ],
+    'maintenance_logs' => [
+        'label' => 'Maintenance Log',
+        'plural_label' => 'Maintenance Logs',
+    ],
     'devices' => [
         'label' => 'Device',
         'plural_label' => 'Devices',

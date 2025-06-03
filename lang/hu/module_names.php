@@ -9,6 +9,10 @@ return [
         'label' => 'Berendezés típus',
         'plural_label' => 'Berendezés típusok',
     ],
+    'maintenance_logs' => [
+        'label' => 'Karbantartási napló',
+        'plural_label' => 'Karbantartási naplók',
+    ],
     'devices' => [
         'label' => 'Berendezés',
         'plural_label' => 'Berendezések',

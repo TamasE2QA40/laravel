@@ -17,13 +17,18 @@ class MaintenanceLogResource extends Resource
     protected static ?string $model = MaintenanceLog::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
-    protected static ?string $navigationLabel = 'Karbantartási naplók';
-    protected static ?string $pluralModelLabel = 'Karbantartási naplók';
-    protected static ?string $modelLabel = 'Karbantartási napló';
 
     public static function getNavigationGroup(): string
     {
         return __('module_names.navigation_groups.maintenance');
+    }
+    public static function getModelLabel(): string
+    {
+        return __('module_names.maintenance_logs.label');
+    }
+    public static function getPluralModelLabel(): string
+    {
+        return __('module_names.maintenance_logs.plural_label');
     }
 
     public static function form(Form $form): Form
@@ -32,35 +37,35 @@ class MaintenanceLogResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('device_id')
-                    ->label('Eszköz')
+                    ->label(__('fields.device'))
                     ->relationship('device', 'name') 
                     ->required()
                     ->searchable(),
 
                 Forms\Components\TextInput::make('performed_by')
-                    ->label('Karbantartó neve')
+                    ->label(__('fields.repairer'))
                     ->required()
                     ->maxLength(255),
 
                 Forms\Components\Textarea::make('description')
-                    ->label('Leírás')
+                    ->label(__('fields.description'))
                     ->nullable()
                     ->rows(3),
 
                 Forms\Components\DatePicker::make('maintenance_date')
-                    ->label('Karbantartás dátuma')
+                    ->label(__('fields.finish_date'))
                     ->required(),
 
                 Forms\Components\DatePicker::make('next_due_date')
-                    ->label('Következő esedékes dátum')
+                    ->label(__('fields.next_date'))
                     ->nullable(),
 
                 Forms\Components\Select::make('status')
-                    ->label('Állapot')
+                    ->label(__('fields.status'))
                     ->options([
-                        'completed' => 'Befejezve',
-                        'pending' => 'Folyamatban',
-                        'skipped' => 'Kihagyva',
+                        'completed' =>(__('fields.completed')),
+                        'pending' => (__('fields.pending')),
+                        'skipped' => (__('fields.skipped')),
                     ])
                     ->required(),
             ]);
@@ -71,19 +76,19 @@ class MaintenanceLogResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('device.name')
-                    ->label('Eszköz')
+                    ->label(__('fields.device'))
                     ->sortable()
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('performed_by')
-                    ->label('Karbantartó'),
+                    ->label(__('fields.repairer')),
 
                 Tables\Columns\TextColumn::make('maintenance_date')
-                    ->label('Dátum')
+                    ->label(__('fields.finish_date'))
                     ->date(),
 
                 Tables\Columns\TextColumn::make('status')
-                    ->label('Állapot')
+                    ->label(__('fields.status'))
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'completed' => 'success',
@@ -92,17 +97,17 @@ class MaintenanceLogResource extends Resource
                     }),
 
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label('Létrehozva')
+                    ->label(__('fields.created_at'))
                     ->dateTime('Y.m.d H:i')
                     ->sortable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('status')
-                    ->label('Állapot')
+                    ->label(__('fields.status'))
                     ->options([
-                        'completed' => 'Befejezve',
-                        'pending' => 'Folyamatban',
-                        'skipped' => 'Kihagyva',
+                        'completed' => (__('fields.completed')),
+                        'pending' => (__('fields.pending')),
+                        'skipped' => (__('fields.skipped')),
                     ]),
             ])
             ->actions([
