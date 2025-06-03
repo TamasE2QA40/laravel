@@ -11,6 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use TangoDevIt\FilamentEmojiPicker\EmojiPickerAction;
 
 class MaintenanceLogResource extends Resource
 {
@@ -45,11 +46,13 @@ class MaintenanceLogResource extends Resource
                 Forms\Components\TextInput::make('performed_by')
                     ->label(__('fields.repairer'))
                     ->required()
+                    ->suffixAction(EmojiPickerAction::make('emoji-title'))
                     ->maxLength(255),
 
                 Forms\Components\Textarea::make('description')
                     ->label(__('fields.description'))
                     ->nullable()
+                    ->hintAction(EmojiPickerAction::make('emoji-messagge'))
                     ->rows(3),
 
                 Forms\Components\DatePicker::make('maintenance_date')

@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use TangoDevIt\FilamentEmojiPicker\EmojiPickerAction;
 
 class DeviceTypeResource extends Resource
 {
@@ -47,6 +48,7 @@ class DeviceTypeResource extends Resource
                     ->unique(ignoreRecord: true)
                     ->maxLength(255),
                 Forms\Components\TextInput::make('note')->label(__('fields.note'))
+                    ->suffixAction(EmojiPickerAction::make('emoji-title'))
                     ->maxLength(255),
                 ])
             ]);
