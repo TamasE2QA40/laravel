@@ -36,4 +36,5 @@ return [
     'completed' => 'Completed',
     'pending' => 'Pending',
     'skipped' => 'Skipped',
+    'viewpdf' => 'View PDF',
 ];

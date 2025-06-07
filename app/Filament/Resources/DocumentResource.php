@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Contracts\View\View;
+use Joaopaulolndev\FilamentPdfViewer\Forms\Components\PdfViewerField;
 
 class DocumentResource extends Resource
 {
@@ -54,6 +55,9 @@ class DocumentResource extends Resource
                     ->openable()
                     ->downloadable()
                     ->maxSize(20000),
+                PdfViewerField::make('attachment')
+                    ->label(__('fields.viewpdf'))
+                    ->minHeight('80svh'),
             ])
         ]);
     }

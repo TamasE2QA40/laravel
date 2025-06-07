@@ -36,4 +36,5 @@ return [
     'completed' => 'Teljesítve',
     'pending' => 'Folyamatban',
     'skipped' => 'Kihagyva',
+    'viewpdf' => 'PDF megtekintése',
 ];
